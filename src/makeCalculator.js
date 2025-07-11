@@ -8,7 +8,9 @@ function makeCalculator() {
     result: 0,
 
     operate(callback, n) {
-      this.result = callback(this.result, n);
+      if (typeof callback === 'function') {
+        this.result = callback(this.result, n);
+      }
 
       return this;
     },
